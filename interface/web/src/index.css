@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
+
+body {
+  background-color: #050505;
+  color: #d4af37;
+  margin: 0;
+  font-family: "Cinzel Decorative", serif;
+  overflow-x: hidden;
+  transition: filter 1s ease-in-out;
+}
+
+body.freeze-effect {
+  filter: grayscale(100%) saturate(0%);
+}
+
+.glass-panel {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 4px 30px rgba(138, 3, 3, 0.3);
+}
