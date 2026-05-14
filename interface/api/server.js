@@ -6,7 +6,6 @@ const rateLimit = require('express-rate-limit');
 const logger = require('../../utils/logger');
 const { errorHandler } = require('../../utils/errors');
 const apiRoutes = require('./routes');
-const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -42,25 +41,6 @@ app.use((req, res, next) => {
 
 // Mount Routes
 app.use('/api', apiRoutes);
-
-// Serve static frontend files
-// On Vercel, dist is moved to root via build script
-const distPath = isProduction ? path.join(process.cwd(), 'dist') : path.join(__dirname, '../web/dist');
-app.use(express.static(distPath));
-
-// Catch-all route to serve frontend index.html
-app.get(/.*/, (req, res) => {
-  if (req.url.startsWith('/api')) {
-    return res.status(404).json({ success: false, message: 'API endpoint not found' });
-  }
-  
-  const indexPath = path.join(distPath, 'index.html');
-  res.sendFile(indexPath, (err) => {
-    if (err) {
-      res.status(404).send(`Frontend build not found at ${distPath}. Please ensure 'npm run build' was executed.`);
-    }
-  });
-});
 
 // Global Error Handler
 app.use(errorHandler);

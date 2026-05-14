@@ -80,8 +80,8 @@ Zafkiel-Arcade-1/
    Create a `.env` file in the root directory:
    ```env
    PORT=3000
-   NODE_ENV=development
-   API_KEY=your_secret_key_here
+   UPABASE_URL=Supabase URL
+   SUPABASE_ANON_KEY=sb_publishable_Your_Anon_Key
    ```
 
 ### Execution
