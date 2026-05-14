@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node interface/api/server.js",
-    "dev": "nodemon interface/api/server.js"
+    "dev": "nodemon interface/api/server.js",
+    "build": "echo 'No build step needed for this API'"
   },
   "keywords": [],
   "author": "",
